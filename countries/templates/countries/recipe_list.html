@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+{% for recipe in recipes %}
+<div class="recipe-card">
+    <a href="{% url 'recipes:recipe_detail' recipe.id %}">{{recipe.name}}</a>
+</div>
+{% endfor %}
+
+{% endblock %}
