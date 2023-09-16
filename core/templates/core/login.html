@@ -4,6 +4,10 @@
 
 {% block navbar %}{% endblock %}
 {% block content %}
-<!--Add the form here, but not yet. Can't get too far ahead of testing-->
+<form method="post" action=".">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button id="login">Login</button>
+</form>
 <a href="{% url 'core:signup' %}" id="create_account">Create Account</a>
 {% endblock content %}

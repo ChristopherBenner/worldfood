@@ -107,15 +107,21 @@ class RecipesTest(LiveServerTestCase):
         self.assertEqual(password_field.get_attribute('placeholder'), 'Password')
         self.assertEqual(login_button.text, 'Login')
 
+        username_field.send_keys('test')
+        password_field.send_keys('testpassword')
         login_button.click()
 
         # John should be redirected to the homepage
-
+        explore_button = self.browser.find_element(by=By.ID, value='explore')
+        self.assertEqual(explore_button.text, 'Explore')
+        
         # John navigates back to the original recipe that he wanted to save -> can skip straight to it
         # as the navigation to a recipe has already been tested
-
-        # save_button = self.browser.find_element(by=By.ID, value='save')
-        # self.assertEqual(save_button.text, 'Save Recipe')
+        self.browser.get('%s%s' % (self.live_server_url, '/recipes/1/'))
+        self.browser.switch_to.active_element.get_attribute("title")
+        
+        save_button = self.browser.find_element(by=By.ID, value='save')
+        self.assertEqual(save_button.text, 'Save Recipe')
 
         # John clicks the save button -> the button text should update to indicate that it is now saved
 
