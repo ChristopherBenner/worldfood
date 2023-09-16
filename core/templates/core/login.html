@@ -1,0 +1,9 @@
+<!-- core/templates/core/login.html -->
+{% extends 'core/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block navbar %}{% endblock %}
+{% block content %}
+<!--Add the form here, but not yet. Can't get too far ahead of testing-->
+<a href="{% url 'core:signup' %}" id="create_account">Create Account</a>
+{% endblock content %}

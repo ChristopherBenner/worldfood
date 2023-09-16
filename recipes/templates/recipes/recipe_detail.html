@@ -2,5 +2,10 @@
 
 {% block content %}
 <h1 id="recipe_title">{{recipe.name}}</h1>
-<h3>Happy Birthday</h3>
+
+{% if user.is_authenticated %}
+    <!--Show save button-->
+{% else %}
+    <h3 class="login_required">Login To Save Recipe</h3>
+{% endif %}
 {% endblock content %}

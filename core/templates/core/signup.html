@@ -1,0 +1,44 @@
+<!--core/templates/core/signup.html-->
+{% extends 'core/base.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block content %}
+<div>
+    <h1>Sign Up</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!--{{ form.non_field_errors }}
+
+        <div>
+            <label>Username</label>
+            {{form.username}}
+        </div>
+        <div>
+            <label>Email</label>
+            {{form.email}}
+        </div>
+        <div>
+            <label>Password</label>
+            {{form.password1}}
+        </div>
+        <div>
+            <label>Repeat Password</label>
+            {{form.password2}}
+        </div>
+        {% if form.error or form.non_field_errors %}
+        <div>
+            {% for field in form %}
+                {{ field.error }}
+            {% endfor %}
+            {{ form.non_field_errors }}
+        </div>
+        {% endif %}-->
+        <button id="submit">Create Account</button>
+    </form>
+
+</div>
+{% endblock content %}

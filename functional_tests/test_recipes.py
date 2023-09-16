@@ -16,7 +16,8 @@ class RecipesTest(LiveServerTestCase):
         self.country_2 = Country.objects.create(name='test country 2', continent = self.continent)
 
     def tearDown(self):
-        self.browser.quit()
+        # self.browser.quit()
+        pass
 
     def test_countries_are_shown_in_list(self):
         # John goes to the home page
@@ -44,6 +45,7 @@ class RecipesTest(LiveServerTestCase):
         country = self.browser.find_element(by=By.XPATH, value='//div[@class="country"]/h3')
         self.assertEqual(country.text, 'test country 2')
         # country.click()
+        self.browser.quit()
 
     def test_recipes_are_saved(self):
         # Add in code to get to the list of recipes for test_country_1
@@ -74,13 +76,14 @@ class RecipesTest(LiveServerTestCase):
         # John doesn't have an account, so he must create a new account
         create_account_button = self.browser.find_element(by=By.ID, value='create_account')
         self.assertEqual(create_account_button.text, 'Create Account')
+        create_account_button.click()
 
         # The page reloads, and John is taken to the login form which asks for a username, email, password, and repeat password
         # He fills out the form and clicks the button to create his account
-        username_field = self.browser.find_element(by=By.ID, value='username')
-        email_field = self.browser.find_element(by=By.ID, value='email')
-        password_1_field = self.browser.find_element(by=By.ID, value='password1')
-        password_2_field = self.browser.find_element(by=By.ID, value='password2')
+        username_field = self.browser.find_element(by=By.NAME, value='username')
+        email_field = self.browser.find_element(by=By.NAME, value='email')
+        password_1_field = self.browser.find_element(by=By.NAME, value='password1')
+        password_2_field = self.browser.find_element(by=By.NAME, value='password2')
         submit_button = self.browser.find_element(by=By.ID, value='submit')
 
         self.assertEqual(username_field.get_attribute('placeholder'), 'Username')
@@ -91,13 +94,13 @@ class RecipesTest(LiveServerTestCase):
 
         username_field.send_keys('test')
         email_field.send_keys('test@test.com')
-        password_1_field.send_keys('password')
-        password_2_field.send_keys('password')
+        password_1_field.send_keys('testpassword')
+        password_2_field.send_keys('testpassword')
         submit_button.click()
 
         # John is redirected to the login screen where he enters his username and password to login
-        username_field = self.browser.find_element(by=By.ID, value='username')
-        password_field = self.browser.find_element(by=By.ID, value='password')
+        username_field = self.browser.find_element(by=By.NAME, value='username')
+        password_field = self.browser.find_element(by=By.NAME, value='password')
         login_button = self.browser.find_element(by=By.ID, value='login')
 
         self.assertEqual(username_field.get_attribute('placeholder'), 'Username')
