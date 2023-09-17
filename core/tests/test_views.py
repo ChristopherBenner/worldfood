@@ -6,6 +6,8 @@ from django.urls import reverse
 
 from ..forms import SignUpForm
 
+from dashboard.models import Dashboard
+
 class HomeViewTest(TestCase):
     def setUp(self):
         self.client = Client()
@@ -40,3 +42,18 @@ class SignupViewTest(TestCase):
 
         response = self.client.post('/signup/', form_data)
         self.assertRedirects(response, reverse('core:login'), status_code=302, target_status_code=200, fetch_redirect_response=True)
+
+    def test_dashboard_created(self):
+        dashboard_num = Dashboard.objects.all().count()
+        self.assertEqual(dashboard_num, 0)
+        form_data = {'username': 'test',
+                     'email': 'test@test.com',
+                     'password1': 'testpassword',
+                     'password2': 'testpassword',}
+        
+        form = SignUpForm(form_data)
+
+        response = self.client.post('/signup/', form_data)
+        dashboard_num = Dashboard.objects.all().count()
+
+        self.assertEqual(dashboard_num, 1)
