@@ -117,7 +117,7 @@ class RecipesTest(LiveServerTestCase):
         
         # John navigates back to the original recipe that he wanted to save -> can skip straight to it
         # as the navigation to a recipe has already been tested
-        self.browser.get('%s%s' % (self.live_server_url, '/recipes/1/'))
+        self.browser.get('%s%s' % (self.live_server_url, '/recipes/1/test-recipe-1/'))
         self.browser.switch_to.active_element.get_attribute("title")
         
         save_button = self.browser.find_element(by=By.ID, value='save')

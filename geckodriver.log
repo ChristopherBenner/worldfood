@@ -2686,3 +2686,29 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: http://l
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:50961."
 1694891454630	Marionette	INFO	Stopped listening on port 51016
 Dynamically enable window occlusion 1
+1694912747167	geckodriver	INFO	Listening on 127.0.0.1:53329
+1694912750258	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53330" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofileHGXBrk"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1694912750882	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1694912751038	Marionette	INFO	Listening on port 53341
+WebDriver BiDi listening on ws://127.0.0.1:53330
+Read port: 53341
+1694912751453	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53330/devtools/browser/289858e7-183e-4278-8d43-23c2aca19837
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53328."
+1694912756397	Marionette	INFO	Stopped listening on port 53341
+Dynamically enable window occlusion 1
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1694912765162	geckodriver	INFO	Listening on 127.0.0.1:53382
+1694912768373	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53383" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofileGvzjDf"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1694912768960	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1694912769118	Marionette	INFO	Listening on port 53392
+WebDriver BiDi listening on ws://127.0.0.1:53383
+Read port: 53392
+1694912769519	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53383/devtools/browser/355b9bee-c8c4-4b36-b303-e9d0a0d89e34
