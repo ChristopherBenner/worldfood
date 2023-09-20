@@ -6,6 +6,7 @@ from django.test import LiveServerTestCase
 
 from countries.models import Continent, Country
 from recipes.models import Recipe
+from notifications.models import Notification, NotificationCategory
 
 class RecipesTest(LiveServerTestCase):
     def setUp(self):
@@ -136,10 +137,85 @@ class RecipesTest(LiveServerTestCase):
         saved_recipes_button = self.browser.find_element(By.ID, 'saved_recipes')
         self.assertEqual(saved_recipes_button.text, 'Saved Recipes')
         saved_recipes_button.click()
-
-        # Have a search bar to search only the saved recipes
         
-        # John clicks one of the recipes he has saved, and is redirected back to the recipe page
+    def test_recipes_are_made(self):
+        # John goes to a recipe, and clicks the "I Made It" button.
+        self.browser.get('%s%s' % (self.live_server_url, '/recipes/1/test-recipe-1/'))
+        self.browser.switch_to.active_element.get_attribute("title")
+        made_button = self.browser.find_element(By.NAME, 'recipe_made')
+        self.assertEqual(made_button.text, 'I Made It!')
+        
+
+        # Upon clicking this, the logic should update to see if any badges are awarded
+        # John should get a badge for completing his first recipe
+        # Before clicking, check to see that there are no notifications. Should be blank and not show 0
+        num_notifications = self.browser.find_element(By.ID, 'num_notifications')
+        self.assertEqual(num_notifications, '')
+        made_button.click()
+
+        made_button = self.browser.find_element(By.NAME, 'recipe_made')
+        self.assertEqual(made_button.text, 'Remove From Made Recipes')
+
+        # John should receive a notification that he got a new badge, and be able to go to the page with all of the badges
+        num_notifications = self.browser.find_element(By.ID, 'num_notifications')
+        self.assertEqual(int(num_notifications), 1)
+
+        # Should be an icon, so can't check for internal text
+        notifications_button = self.browser.find_element(By.ID, 'notifications')
+        notifications_button.click()
+
+        # Redirected to a page with all of the notifications. Should show all past notifications
+        # Notifications should be in two colors based off of read status
+        # Option to mark all read, or go to appropriate locations such as badges, recipes, etc.
+        new_notification_button = self.browser.find_element(By.XPATH, '//div[@class="notification"]/a')
+        self.assertEqual(new_notification_button.text, 'New Badge Awarded')
+        # Add details underneath which say which badge was awarded
+        new_notification_button.click()
+        
+        badges = self.browser.find_element(By.ID, 'badges')
+        self.assertEqual(badges.text, 'Badges')
+
+    def test_notifications_clear(self):
+        # Create a notification to test with
+        self.badge_category = NotificationCategory.objects.create(name='Badge Awarded')
+        self.notification = Notification.objects.create(category=self.badge_category, description='You earned a badge for making your first recipe', read=False)
+        # John should be able to clear the notification saying that he earned a new badge. Must navigate back to the notifications page
+        notifications_button = self.browser.find_element(By.ID, 'notifications')
+        notifications_button.click()
+
+        unread_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification unread"]/h3')
+        self.assertEqual(unread_notifications.text, 'Badge Awarded')
+        # Check that mark all read works
+        mark_all_read_button = self.browser.find_element(By.ID, 'mark_all_read')
+        self.assertEqual(mark_all_read_button.text, 'Mark all read')
+
+        read_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification read"]/h3')
+        self.assertEqual(read_notifications.text, 'Badge Awarded')
+
+        # Reset and check that individual 
+        self.notification.read = False
+
+        unread_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification unread"]/h3')
+        self.assertEqual(unread_notifications.text, 'Badge Awarded')
+        # Check that mark read works
+        mark_read_button = self.browser.find_element(By.NAME, 'mark_read')
+        self.assertEqual(mark_read_button.text, 'Read')
+
+        read_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification read"]/h3')
+        self.assertEqual(read_notifications.text, 'Badge Awarded')
+
+
+
+
+
+
+    def test_reviews_are_posted(self):
+        pass
+        # John finds a recipe he likes and wants to leave a review of it
+        # John wants to leave a rating out of 5 stars, as well as a text comment about it
+        # John should be able to edit his review after he makes it.
+        # John should see the number of reviews increase after he leaves his review as well as seeing the average of the ratings
+        # John should get another badge for leaving his first review, and get a notification that he earned a new badge
 
 
 
