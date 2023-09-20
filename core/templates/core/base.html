@@ -10,7 +10,12 @@
 <body>
     <!--Add a nav bar-->
     {% block navbar %}
-    <a href="{% url 'core:login' %}" id="login">Login</a>
+    {% if user.is_authenticated %}
+        <!--Add logout button-->
+        <a href="{% url 'dashboard:dashboard' %}" id="dashboard">Dashboard</a>
+    {% else %}
+        <a href="{% url 'core:login' %}" id="login">Login</a>
+    {% endif %}
     {% endblock navbar %}
     {% block content %}
     {% endblock content %}

@@ -4,7 +4,14 @@
 <h1 id="recipe_title">{{recipe.name}}</h1>
 
 {% if user.is_authenticated %}
-    <!--Show save button-->
+    <form action="{% url 'recipes:recipe_save' recipe.id %}" method="post">
+        {% csrf_token %}
+        {% if liked %}
+            <button type="submit" name="recipe_save" value="{{recipe.id }}">Recipe Saved</button>
+        {% else %}
+        <button type="submit" name="recipe_save" value="{{recipe.id }}">Save Recipe</button>
+        {% endif %}
+    </form>
 {% else %}
     <h3 class="login_required">Login To Save Recipe</h3>
 {% endif %}

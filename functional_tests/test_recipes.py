@@ -120,13 +120,27 @@ class RecipesTest(LiveServerTestCase):
         self.browser.get('%s%s' % (self.live_server_url, '/recipes/1/test-recipe-1/'))
         self.browser.switch_to.active_element.get_attribute("title")
         
-        save_button = self.browser.find_element(by=By.ID, value='save')
+        save_button = self.browser.find_element(by=By.NAME, value='recipe_save')
         self.assertEqual(save_button.text, 'Save Recipe')
-
+        save_button.click()
+        save_button = self.browser.find_element(by=By.NAME, value='recipe_save')
+        self.assertEqual(save_button.text, 'Recipe Saved')
         # John clicks the save button -> the button text should update to indicate that it is now saved
 
         # John goes to his dashboard/saved_recipes and sees that the recipe he just saved is now on the list.
-        # There should be options to filter by date added, alphabetical, and even have a search bar to look within saved recipes
+        
+        dashboard_button = self.browser.find_element(By.ID, 'dashboard')
+        self.assertEqual(dashboard_button.text, 'Dashboard')
+        dashboard_button.click()
+
+        saved_recipes_button = self.browser.find_element(By.ID, 'saved_recipes')
+        self.assertEqual(saved_recipes_button.text, 'Saved Recipes')
+        saved_recipes_button.click()
+
+        # Have a search bar to search only the saved recipes
+        
+        # John clicks one of the recipes he has saved, and is redirected back to the recipe page
+
 
 
         

@@ -2712,3 +2712,388 @@ WebDriver BiDi listening on ws://127.0.0.1:53383
 Read port: 53392
 1694912769519	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 DevTools listening on ws://127.0.0.1:53383/devtools/browser/355b9bee-c8c4-4b36-b303-e9d0a0d89e34
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53328."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53328."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53328."
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1694952779666	geckodriver	INFO	Listening on 127.0.0.1:53964
+1694952782725	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53965" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofile19Qf7V"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1694952783365	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1694952783513	Marionette	INFO	Listening on port 53975
+WebDriver BiDi listening on ws://127.0.0.1:53965
+Read port: 53975
+1694952784043	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53965/devtools/browser/ce688cad-4d19-41d0-a0dc-281aef5b95af
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53963."
+1694952789036	Marionette	INFO	Stopped listening on port 53975
+Dynamically enable window occlusion 1
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1694952799026	geckodriver	INFO	Listening on 127.0.0.1:54021
+1694952802057	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54022" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofilemJxh4p"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1694952802728	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1694952802870	Marionette	INFO	Listening on port 54032
+WebDriver BiDi listening on ws://127.0.0.1:54022
+Read port: 54032
+1694952803287	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54022/devtools/browser/b89c601b-f719-4e0e-b4bc-51e4b3e55fa2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53963."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53963."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:53963."
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:383:22
+
+console.error: (new NetworkOfflineError("Network is offline", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))
+1695172052738	geckodriver	INFO	Listening on 127.0.0.1:59297
+1695172055817	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59298" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofileMNy5bf"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695172056572	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695172056714	Marionette	INFO	Listening on port 59306
+WebDriver BiDi listening on ws://127.0.0.1:59298
+Read port: 59306
+1695172057146	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59298/devtools/browser/47702649-89e5-4215-a7db-bab0b83e74d9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59296."
+1695172061741	Marionette	INFO	Stopped listening on port 59306
+Dynamically enable window occlusion 1
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1695172070514	geckodriver	INFO	Listening on 127.0.0.1:59341
+1695172073582	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59342" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofileJ8KHcQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695172074187	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695172074321	Marionette	INFO	Listening on port 59349
+WebDriver BiDi listening on ws://127.0.0.1:59342
+Read port: 59349
+1695172074797	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59342/devtools/browser/fe155b78-b4fe-4f29-ab1a-ec54d3b3ed5d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59296."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59296."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59296."
+1695172262247	Marionette	INFO	Stopped listening on port 59349
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59406" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofile8gjNVQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695172184402	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695172184535	Marionette	INFO	Listening on port 59413
+WebDriver BiDi listening on ws://127.0.0.1:59406
+Read port: 59413
+1695172185010	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59406/devtools/browser/9cf84de0-2153-4e44-9815-c521e1887f1c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59404."
+1695172189440	Marionette	INFO	Stopped listening on port 59413
+Dynamically enable window occlusion 1
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1695172198066	geckodriver	INFO	Listening on 127.0.0.1:59450
+1695172201156	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59451" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofilent5Awb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695172201724	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695172201862	Marionette	INFO	Listening on port 59458
+WebDriver BiDi listening on ws://127.0.0.1:59451
+Read port: 59458
+1695172202248	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59451/devtools/browser/6a382d61-1cf2-44ba-b1e0-e6121593b224
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59404."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59404."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59404."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59404."
+1695172264370	Marionette	INFO	Stopped listening on port 59458
+Dynamically enable window occlusion 1
+1695172269509	geckodriver	INFO	Listening on 127.0.0.1:59511
+1695172272621	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59512" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofileSYXLAe"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695172273318	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695172273463	Marionette	INFO	Listening on port 59519
+WebDriver BiDi listening on ws://127.0.0.1:59512
+Read port: 59519
+1695172273979	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59512/devtools/browser/9eda9ef1-f24e-4366-9c86-471755ba7f16
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59510."
+1695172278218	Marionette	INFO	Stopped listening on port 59519
+Dynamically enable window occlusion 1
+JavaScript error: resource://services-settings/Utils.sys.mjs, line 229: TypeError: NetworkError: Network request failed
+1695172286651	geckodriver	INFO	Listening on 127.0.0.1:59553
+1695172289731	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59554" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\c4ext\\AppData\\Local\\Temp\\rust_mozprofileS4EPHE"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695172290370	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695172290500	Marionette	INFO	Listening on port 59561
+WebDriver BiDi listening on ws://127.0.0.1:59554
+Read port: 59561
+1695172290983	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59554/devtools/browser/fc488cd0-7e6a-4393-815e-a36f4910b683
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59510."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59510."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59510."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:59510."
+1695172324225	Marionette	INFO	Stopped listening on port 59561
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function

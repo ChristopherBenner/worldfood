@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+{% for recipe in saved_recipes %}
+    <a href="{% url 'recipes:recipe_detail' recipe.id recipe.slug %}">{{recipe.name}}</a>
+{% empty %}
+    <h3>No saved recipes</h3>
+{% endfor %}
+{% endblock content %}
