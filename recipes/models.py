@@ -10,6 +10,7 @@ class Recipe(models.Model):
     instructions = models.TextField(null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     saved_recipes = models.ManyToManyField(User, related_name='saved_recipe')
+    made_recipes = models.ManyToManyField(User, related_name='made_recipe')
     # Things to add later: pictures, ratings, comments
 
     def save(self, *args, **kwargs):

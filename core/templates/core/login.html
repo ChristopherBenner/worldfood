@@ -2,7 +2,7 @@
 {% extends 'core/base.html' %}
 {% block title %}Login{% endblock %}
 
-{% block navbar %}{% endblock %}
+{% block navbar %}{% endblock navbar %}
 {% block content %}
 <form method="post" action=".">
     {% csrf_token %}

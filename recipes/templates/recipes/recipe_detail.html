@@ -9,7 +9,15 @@
         {% if liked %}
             <button type="submit" name="recipe_save" value="{{recipe.id }}">Recipe Saved</button>
         {% else %}
-        <button type="submit" name="recipe_save" value="{{recipe.id }}">Save Recipe</button>
+            <button type="submit" name="recipe_save" value="{{recipe.id }}">Save Recipe</button>
+        {% endif %}
+    </form>
+    <form action="{% url 'recipes:recipe_made' recipe.id %}" method="post">
+        {% csrf_token %}
+        {% if made %}
+            <button type="submit" name="recipe_made">Remove From Made Recipes</button>
+        {% else %}
+            <button type="submit" name="recipe_made">I Made It!</button>
         {% endif %}
     </form>
 {% else %}

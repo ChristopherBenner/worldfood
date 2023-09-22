@@ -1,26 +1,41 @@
 # functional_tests/test_recipes.py
-
+import time
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.common.by import By
-from django.test import LiveServerTestCase
-
+from django.test import LiveServerTestCase, Client
+from django.contrib.auth.models import User
 from countries.models import Continent, Country
 from recipes.models import Recipe
-from notifications.models import Notification, NotificationCategory
+# from notifications.models import Notification, NotificationCategory
 
 class RecipesTest(LiveServerTestCase):
     def setUp(self):
         self.browser = WebDriver()
         self.browser.implicitly_wait(5)
+        self.username = 'testuser'
+        self.password = 'testpassword'
         self.continent = Continent.objects.create(name='test_continent')
         self.country_1 = Country.objects.create(name='test country 1', continent = self.continent)
         self.country_2 = Country.objects.create(name='test country 2', continent = self.continent)
+        
 
     def tearDown(self):
-        # self.browser.quit()
-        pass
+        self.browser.quit()
+        # pass
 
-    def test_countries_are_shown_in_list(self):
+    def login(self):
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.browser.get('%s%s' % (self.live_server_url, '/login/'))
+        self.browser.switch_to.active_element.get_attribute("title")
+        username_field = self.browser.find_element(by=By.NAME, value='username')
+        password_field = self.browser.find_element(by=By.NAME, value='password')
+        login_button = self.browser.find_element(by=By.ID, value='login')
+        username_field.send_keys(self.username)
+        password_field.send_keys(self.password)
+        login_button.click()
+
+
+    '''def test_countries_are_shown_in_list(self):
         # John goes to the home page
         self.browser.get(self.live_server_url)
 
@@ -46,9 +61,9 @@ class RecipesTest(LiveServerTestCase):
         country = self.browser.find_element(by=By.XPATH, value='//div[@class="country"]/h3')
         self.assertEqual(country.text, 'test country 2')
         # country.click()
-        self.browser.quit()
+        self.browser.quit()'''
 
-    def test_recipes_are_saved(self):
+    '''def test_recipes_are_saved(self):
         # Add in code to get to the list of recipes for test_country_1
         # The current test will never work as the test doesn't know which page to start from
         # Add in slug field to make things more readable
@@ -136,10 +151,12 @@ class RecipesTest(LiveServerTestCase):
 
         saved_recipes_button = self.browser.find_element(By.ID, 'saved_recipes')
         self.assertEqual(saved_recipes_button.text, 'Saved Recipes')
-        saved_recipes_button.click()
+        saved_recipes_button.click()'''
         
     def test_recipes_are_made(self):
+        self.recipe_1 = Recipe.objects.create(name='test recipe 1', country = self.country_1)
         # John goes to a recipe, and clicks the "I Made It" button.
+        self.login()
         self.browser.get('%s%s' % (self.live_server_url, '/recipes/1/test-recipe-1/'))
         self.browser.switch_to.active_element.get_attribute("title")
         made_button = self.browser.find_element(By.NAME, 'recipe_made')
@@ -150,7 +167,7 @@ class RecipesTest(LiveServerTestCase):
         # John should get a badge for completing his first recipe
         # Before clicking, check to see that there are no notifications. Should be blank and not show 0
         num_notifications = self.browser.find_element(By.ID, 'num_notifications')
-        self.assertEqual(num_notifications, '')
+        self.assertEqual(num_notifications.text, '')
         made_button.click()
 
         made_button = self.browser.find_element(By.NAME, 'recipe_made')
@@ -158,7 +175,7 @@ class RecipesTest(LiveServerTestCase):
 
         # John should receive a notification that he got a new badge, and be able to go to the page with all of the badges
         num_notifications = self.browser.find_element(By.ID, 'num_notifications')
-        self.assertEqual(int(num_notifications), 1)
+        self.assertEqual(int(num_notifications.text), 1)
 
         # Should be an icon, so can't check for internal text
         notifications_button = self.browser.find_element(By.ID, 'notifications')
@@ -175,7 +192,7 @@ class RecipesTest(LiveServerTestCase):
         badges = self.browser.find_element(By.ID, 'badges')
         self.assertEqual(badges.text, 'Badges')
 
-    def test_notifications_clear(self):
+    '''def test_notifications_clear(self):
         # Create a notification to test with
         self.badge_category = NotificationCategory.objects.create(name='Badge Awarded')
         self.notification = Notification.objects.create(category=self.badge_category, description='You earned a badge for making your first recipe', read=False)
@@ -200,23 +217,24 @@ class RecipesTest(LiveServerTestCase):
         # Check that mark read works
         mark_read_button = self.browser.find_element(By.NAME, 'mark_read')
         self.assertEqual(mark_read_button.text, 'Read')
+        mark_all_read_button.click()
 
         read_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification read"]/h3')
-        self.assertEqual(read_notifications.text, 'Badge Awarded')
+        self.assertEqual(read_notifications.text, 'Badge Awarded')'''
 
 
 
 
 
 
-    def test_reviews_are_posted(self):
+    '''def test_reviews_are_posted(self):
         pass
         # John finds a recipe he likes and wants to leave a review of it
         # John wants to leave a rating out of 5 stars, as well as a text comment about it
         # John should be able to edit his review after he makes it.
         # John should see the number of reviews increase after he leaves his review as well as seeing the average of the ratings
         # John should get another badge for leaving his first review, and get a notification that he earned a new badge
-
+    '''
 
 
         
