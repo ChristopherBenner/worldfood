@@ -20,6 +20,9 @@
             <button type="submit" name="recipe_made">I Made It!</button>
         {% endif %}
     </form>
+    {% for recipe in saved_recipes %}
+        <h3>{{recipe.name}}</h3>
+    {% endfor %}
 {% else %}
     <h3 class="login_required">Login To Save Recipe</h3>
 {% endif %}

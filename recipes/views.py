@@ -1,17 +1,17 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from dashboard.models import Dashboard
-from .models import Recipe
+from .models import Recipe, MadeRecipe, SavedRecipe
 
 def recipe_detail(request, pk, slug):
     recipe = Recipe.objects.get(pk=pk)
     liked = False
     made = False
-    saved_recipes = Recipe.objects.filter(saved_recipes__username = request.user.username)
-    made_recipes = Recipe.objects.filter(made_recipes__username = request.user.username)
-    if recipe in saved_recipes:
+    saved_recipes = SavedRecipe.objects.filter(recipe = recipe).filter(user = request.user)
+    made_recipes = MadeRecipe.objects.filter(recipe = recipe).filter(user = request.user)
+    if saved_recipes:
         liked = True
-    if recipe in made_recipes:
+    if made_recipes:
         made = True
     return render(request, 'recipes/recipe_detail.html', {
         'recipe': recipe,
@@ -27,18 +27,20 @@ def get_redirect_url(request, pk):
 
 def RecipeSave(request, pk):
     recipe = get_object_or_404(Recipe, id=pk)
-    if recipe.saved_recipes.filter(id=request.user.id).exists():
-        recipe.saved_recipes.remove(request.user)
+    saved_recipe = SavedRecipe.objects.filter(recipe = recipe).filter(user = request.user)
+    if saved_recipe:
+        saved_recipe.delete()
     else:
-        recipe.saved_recipes.add(request.user)
+        SavedRecipe.objects.create(user = request.user, recipe = recipe)
 
     return redirect(reverse('recipes:recipe_redirect', args=[str(pk)]))
     
 def RecipeMade(request, pk):
     recipe = get_object_or_404(Recipe, id=pk)
-    if recipe.made_recipes.filter(id=request.user.id).exists():
-        recipe.made_recipes.remove(request.user)
+    made_recipe = MadeRecipe.objects.filter(recipe = recipe).filter(user = request.user)
+    if made_recipe:
+        made_recipe.delete()
     else:
-        recipe.made_recipes.add(request.user)
+        MadeRecipe.objects.create(user = request.user, recipe = recipe)
 
     return redirect(reverse('recipes:recipe_redirect', args=[str(pk)]))

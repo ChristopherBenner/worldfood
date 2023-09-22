@@ -9,10 +9,20 @@ class Recipe(models.Model):
     ingredients = models.TextField(null=True, blank=True)
     instructions = models.TextField(null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
-    saved_recipes = models.ManyToManyField(User, related_name='saved_recipe')
-    made_recipes = models.ManyToManyField(User, related_name='made_recipe')
+    # saved_recipes = models.ManyToManyField(User, related_name='saved_recipe')
+    # made_recipes = models.ManyToManyField(User, related_name='made_recipe')
     # Things to add later: pictures, ratings, comments
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+class SavedRecipe(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+
+class MadeRecipe(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
