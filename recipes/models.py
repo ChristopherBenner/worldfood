@@ -17,12 +17,29 @@ class Recipe(models.Model):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.name
+
 class SavedRecipe(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = "Saved Recipes"
+
+    def __str__(self):
+        return f"{self.user.username} | {self.recipe.name}"
+    
+    
+
 class MadeRecipe(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Made Recipes"
+
+    def __str__(self):
+        return f"{self.user.username} | {self.recipe.name}"

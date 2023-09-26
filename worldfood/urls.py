@@ -23,4 +23,5 @@ urlpatterns = [
     path("countries/", include('countries.urls')),
     path("recipes/", include('recipes.urls')),
     path("dashboard/", include('dashboard.urls')),
+    path("notifications/", include('notifications.urls')),
 ]

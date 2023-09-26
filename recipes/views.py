@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from dashboard.models import Dashboard
+from notifications.models import Notification
 from .models import Recipe, MadeRecipe, SavedRecipe
 
 def recipe_detail(request, pk, slug):
@@ -42,5 +43,8 @@ def RecipeMade(request, pk):
         made_recipe.delete()
     else:
         MadeRecipe.objects.create(user = request.user, recipe = recipe)
+        # Replace this with a call to the badge awarding system. The badge system should then be responsible
+        # for making the call to create the notification
+        Notification.objects.create(user = request.user, name='Test Notification')
 
     return redirect(reverse('recipes:recipe_redirect', args=[str(pk)]))
