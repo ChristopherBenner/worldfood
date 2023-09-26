@@ -12,7 +12,7 @@
     {% block navbar %}
     {% if user.is_authenticated %}
         <!--Add logout button-->
-        <a href="#" id="num_notifications">{{num_notifications}}</a>
+        <a href="{% url 'notifications:notifications' %}" id="notifications"><span id="num_notifications">{{num_notifications}}</span></a>
         <a href="{% url 'dashboard:dashboard' %}" id="dashboard">Dashboard</a>
     {% else %}
         <a href="{% url 'core:login' %}" id="login">Login</a>

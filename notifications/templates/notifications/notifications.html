@@ -1,3 +1,12 @@
 <!--notifications/templates/notifications/notifications.html-->
 
 {% extends 'core/base.html' %}
+{% block content %}
+{% for notification in notifications %}
+    <div class="notification-card">
+        <a href="{% url 'badges:badges' %}">New Badge Awarded</a>
+        <!--Come back and change it so the text updates with the notification text
+        and the appropriate url based off of what kind of notification it is-->
+    </div>
+{% endfor %}
+{% endblock content %}

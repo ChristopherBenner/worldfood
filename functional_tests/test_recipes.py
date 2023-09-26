@@ -176,24 +176,24 @@ class RecipesTest(LiveServerTestCase):
         # John should receive a notification that he got a new badge, and be able to go to the page with all of the badges
         num_notifications = self.browser.find_element(By.ID, 'num_notifications')
         self.assertEqual(int(num_notifications.text), 1)
-        
-        '''
-        Everything above this works
-        ''' 
 
         # Should be an icon, so can't check for internal text
         notifications_button = self.browser.find_element(By.ID, 'notifications')
         notifications_button.click()
 
+        '''
+        Everything above this works
+        ''' 
+
         # Redirected to a page with all of the notifications. Should show all past notifications
         # Notifications should be in two colors based off of read status
         # Option to mark all read, or go to appropriate locations such as badges, recipes, etc.
-        new_notification_button = self.browser.find_element(By.XPATH, '//div[@class="notification"]/a')
+        new_notification_button = self.browser.find_element(By.XPATH, '//div[@class="notification-card"]/a')
         self.assertEqual(new_notification_button.text, 'New Badge Awarded')
         # Add details underneath which say which badge was awarded
         new_notification_button.click()
         
-        badges = self.browser.find_element(By.ID, 'badges')
+        badges = self.browser.find_element(By.CLASS_NAME, 'heading')
         self.assertEqual(badges.text, 'Badges')
 
     '''def test_notifications_clear(self):

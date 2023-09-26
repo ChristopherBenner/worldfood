@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'countries',
     'dashboard',
     'notifications',
+    'badges',
 ]
 
 MIDDLEWARE = [
