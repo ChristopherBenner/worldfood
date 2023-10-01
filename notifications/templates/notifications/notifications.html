@@ -2,8 +2,10 @@
 
 {% extends 'core/base.html' %}
 {% block content %}
+<!--Add a form for the mark all read button-->
 {% for notification in notifications %}
-    <div class="notification-card">
+    <div class="notification-card {% if notification.read == False %} unread {% else %} read {% endif %}">
+        <h3>{{notification.category.category}}</h3>
         <a href="{% url 'badges:badges' %}">New Badge Awarded</a>
         <!--Come back and change it so the text updates with the notification text
         and the appropriate url based off of what kind of notification it is-->

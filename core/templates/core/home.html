@@ -1,13 +1,6 @@
 <!-- core/templates/core/home.html -->
-<!DOCTYPE html>
-<html>
+{% extends 'core/base.html' %}
 
-<head lang="en">
-    <meta charset="utf-8">
-    <title>World Food</title>
-</head>
-
-<body>
-    <a href="{% url 'countries:country_list' %}" id="explore">Explore</a>
-</body>
-</html>
+{% block content %}
+<a href="{% url 'countries:country_list' %}" id="explore">Explore</a>
+{% endblock content %}
