@@ -3,12 +3,23 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <!--Add a form for the mark all read button-->
+<form action="{% url 'notifications:notifications_clear' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="mark_all_read">Mark all read</button>
+</form>
 {% for notification in notifications %}
-    <div class="notification-card {% if notification.read == False %} unread {% else %} read {% endif %}">
+    <div class="notification-card {% if notification.read == False %}unread{% else %}read{% endif %}">
         <h3>{{notification.category.category}}</h3>
+        <p>status read = {{notification.read}}</p>
         <a href="{% url 'badges:badges' %}">New Badge Awarded</a>
+        <form action="{% url 'notifications:notification_read' notification.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="mark_read">Read</button>
+        </form>
         <!--Come back and change it so the text updates with the notification text
         and the appropriate url based off of what kind of notification it is-->
     </div>
+{% empty %}
+<h3>No new notifications</h3>
 {% endfor %}
 {% endblock content %}

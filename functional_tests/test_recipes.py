@@ -201,7 +201,8 @@ class RecipesTest(LiveServerTestCase):
         # Create a notification to test with
         self.login()
         self.notification_category = NotificationCategory.objects.create(category='Badge Awarded')
-        self.notification = Notification.objects.create(category=self.notification_category, description='You earned a badge for making your first recipe', read=False, user=self.user)
+        self.notification1 = Notification.objects.create(category=self.notification_category, description='You earned a badge for making your first recipe', read=False, user=self.user)
+        self.notification2 = Notification.objects.create(category=self.notification_category, description='You earned a badge for making your first recipe', read=False, user=self.user)
         # John must be logged in to view the notifications
         
         self.browser.get('%s%s' % (self.live_server_url, '/'))
@@ -209,30 +210,25 @@ class RecipesTest(LiveServerTestCase):
         # John should be able to clear the notification saying that he earned a new badge. Must navigate back to the notifications page
         notifications_button = self.browser.find_element(By.ID, 'notifications')
         notifications_button.click()
-
-        unread_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification-card unread"]/h3')
+        self.browser.implicitly_wait(5)
+        unread_notifications = self.browser.find_element(By.CSS_SELECTOR, 'div.notification-card.unread:first-of-type > h3')
         self.assertEqual(unread_notifications.text, 'Badge Awarded')
 
-        # Everything above this works
-
-        # Check that mark all read works
-        mark_all_read_button = self.browser.find_element(By.ID, 'mark_all_read')
-        self.assertEqual(mark_all_read_button.text, 'Mark all read')
-
-        read_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification-card read"]/h3')
-        self.assertEqual(read_notifications.text, 'Badge Awarded')
-
-        # Reset and check that individual 
-        self.notification.read = False
-
-        unread_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification-card unread"]/h3')
-        self.assertEqual(unread_notifications.text, 'Badge Awarded')
-        # Check that mark read works
         mark_read_button = self.browser.find_element(By.NAME, 'mark_read')
         self.assertEqual(mark_read_button.text, 'Read')
-        mark_all_read_button.click()
+        mark_read_button.click()
 
-        read_notifications = self.browser.find_element(By.XPATH, '//div[@class="notification-card read"]/h3')
+        read_notifications = self.browser.find_element(By.CSS_SELECTOR, 'div.notification-card.read:first-of-type > h3')
+        self.assertEqual(read_notifications.text, 'Badge Awarded')
+
+        unread_notifications = self.browser.find_element(By.CSS_SELECTOR, 'div.notification-card.unread > h3')
+        self.assertEqual(unread_notifications.text, 'Badge Awarded')
+        # Check that mark all read works
+        mark_all_read_button = self.browser.find_element(By.NAME, 'mark_all_read')
+        self.assertEqual(mark_all_read_button.text, 'Mark all read')
+        mark_all_read_button.click()        
+
+        read_notifications = self.browser.find_element(By.CSS_SELECTOR, 'div.notification-card.read:last-of-type > h3')
         self.assertEqual(read_notifications.text, 'Badge Awarded')
 
     '''def test_reviews_are_posted(self):
