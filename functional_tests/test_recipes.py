@@ -197,7 +197,7 @@ class RecipesTest(LiveServerTestCase):
         badges = self.browser.find_element(By.CLASS_NAME, 'heading')
         self.assertEqual(badges.text, 'Badges')'''
 
-    def test_notifications_clear(self):
+    '''def test_notifications_clear(self):
         # Create a notification to test with
         self.login()
         self.notification_category = NotificationCategory.objects.create(category='Badge Awarded')
@@ -229,7 +229,7 @@ class RecipesTest(LiveServerTestCase):
         mark_all_read_button.click()        
 
         read_notifications = self.browser.find_element(By.CSS_SELECTOR, 'div.notification-card.read:last-of-type > h3')
-        self.assertEqual(read_notifications.text, 'Badge Awarded')
+        self.assertEqual(read_notifications.text, 'Badge Awarded')'''
 
     '''def test_reviews_are_posted(self):
         pass

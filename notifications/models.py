@@ -2,18 +2,19 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class NotificationCategory(models.Model):
+'''class NotificationCategory(models.Model):
     category = models.CharField(max_length=255)
 
     class Meta:
         verbose_name_plural = 'Notification Categories'
 
     def __str__(self):
-        return self.category
+        return self.category'''
 
 class Notification(models.Model):
+    categories = (("badge awarded", "Badge Awarded"),)
     description = models.CharField(max_length=255)
-    category = models.ForeignKey(NotificationCategory, on_delete=models.CASCADE)
+    category = models.CharField(max_length = 255, choices = categories, null = True, blank = True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     notification_time = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)
