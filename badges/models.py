@@ -21,6 +21,7 @@ class Badge(models.Model):
     awarded_badge = models.ImageField(upload_to="static/badges", null=True, blank=True)
     not_awarded_badge = models.ImageField(upload_to="static/badges", null=True, blank=True)
     points_required = models.IntegerField(null = True, blank = True)
+    
 
     def __str__(self):
         return self.badge_name

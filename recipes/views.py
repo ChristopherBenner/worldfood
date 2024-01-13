@@ -3,7 +3,7 @@ from django.urls import reverse
 from dashboard.models import Dashboard
 from notifications.models import Notification
 from .models import Recipe, MadeRecipe, SavedRecipe
-
+from badges.functions import add_badge
 def recipe_detail(request, pk, slug):
     recipe = Recipe.objects.get(pk=pk)
     liked = False
@@ -54,5 +54,7 @@ def RecipeMade(request, pk):
         # for making the call to create the notification
         # Notification.objects.create(user = request.user, description='Test Notification')
         # Badge.
+        points = MadeRecipe.objects.filter(user = request.user).count()
+        add_badge(request.user, 'Recipes Created', points)
 
     return redirect(reverse('recipes:recipe_redirect', args=[str(pk)]))
