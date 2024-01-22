@@ -39,7 +39,7 @@
             };
 
             getNotifications();
-            setInterval(getNotifications, 30000);
+            setInterval(getNotifications, 300000); // set to refresh every 5 minutes
         </script>
         <a href="{% url 'dashboard:dashboard' %}" id="dashboard">Dashboard</a>
     {% else %}
