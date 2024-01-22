@@ -1,6 +1,12 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+
+<h1>{{country.name}}</h1>
+<ul>
+    <li>{{country.capital}}</li>
+</ul>
+<img src="{{country.flag}}">
 {% for recipe in recipes %}
 <div class="recipe-card">
     <a href="{% url 'recipes:recipe_detail' recipe.id recipe.slug %}">{{recipe.name}}</a>

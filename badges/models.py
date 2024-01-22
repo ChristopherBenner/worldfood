@@ -31,5 +31,7 @@ class AwardedBadge(models.Model):
     awarded_to = models.ForeignKey(User, on_delete = models.CASCADE)
     date_awarded = models.DateTimeField(auto_now_add = True)
 
+    class Meta:
+        unique_together = (('badge', 'awarded_to'),)
     def __str__(self):
         return self.badge.badge_name + " | " + self.awarded_to.username

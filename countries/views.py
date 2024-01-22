@@ -1,5 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import render
+from restcountries import RestCountryApiV2 as rapi
 
 from .models import Continent, Country
 from recipes.models import Recipe
@@ -22,9 +23,12 @@ def country_list(request):
     })
 
 def recipe_list(request, pk):
-    # country = Country.objects.filter(pk=pk).first()
+    country_name = Country.objects.filter(pk=pk).first()
     # recipes = list(Recipe.objects.filter(country = country))
+    country_list = rapi.get_countries_by_name(country_name)
+    country = country_list[0]
     recipes = list(Recipe.objects.all())
     return render(request, 'countries/recipe_list.html', {
         'recipes': recipes,
+        'country': country,
     })

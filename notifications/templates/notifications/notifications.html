@@ -9,7 +9,7 @@
 </form>
 {% for notification in notifications %}
     <div class="notification-card {% if notification.read == False %}unread{% else %}read{% endif %}">
-        <h3>{{notification.category.category}}</h3>
+        <h3>{{notification.description}}</h3>
         <p>status read = {{notification.read}}</p>
         <a href="{% url 'badges:badges' %}">New Badge Awarded</a>
         <form action="{% url 'notifications:notification_read' notification.id %}" method="post">
