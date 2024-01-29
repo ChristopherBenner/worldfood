@@ -30,6 +30,7 @@
             <button type="submit" name="recipe_liked">Like</button>
         {% endif %}
     </form>
+    <p>Liked by: {{liked_count}}</p>
     {% for recipe in saved_recipes %}
         <h3>{{recipe.name}}</h3>
     {% endfor %}

@@ -22,6 +22,7 @@ def recipe_detail(request, pk, slug):
         saved_recipes = SavedRecipe.objects.filter(recipe = recipe).filter(user = request.user)
         made_recipes = MadeRecipe.objects.filter(recipe = recipe).filter(user = request.user)        
         liked_recipes = Like.objects.filter(recipe = recipe).filter(user = request.user)
+        liked_count = Like.objects.filter(recipe = recipe).count()
         
         if saved_recipes:
             saved = True
@@ -48,6 +49,7 @@ def recipe_detail(request, pk, slug):
         'saved': saved,
         'made': made,
         'liked': liked,
+        'liked_count': liked_count,
         # 'attributes': attributes,
     })
 
