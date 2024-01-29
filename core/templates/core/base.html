@@ -18,8 +18,10 @@
 <body>
     <!--Add a nav bar-->
     {% block navbar %}
+        <a href="{% url 'core:home' %}">Home</a> <!--Come up with a logo and make clicking on the logo work-->
+        <a href="{% url 'countries:country_list' %}">Explore</a> <!--Add a map of the world at the beginning-->
     {% if user.is_authenticated %}
-        <!--Add logout button-->
+        
         <a href="{% url 'core:logout' %}">Logout</a>
         <a href="{% url 'notifications:notifications' %}" id="notifications"><span id="num_notifications"></span></a>
         <script>

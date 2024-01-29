@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'dashboard',
     'notifications',
     'badges',
+    'likes',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ],
 }
+
+EDAMAM_APP_ID = config('EDAMAM_APP_ID', default = '')
+EDAMAM_APP_KEY = config('EDAMAM_APP_KEY', default = '')

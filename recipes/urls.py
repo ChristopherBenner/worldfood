@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/<slug:slug>/', views.recipe_detail, name='recipe_detail'),
     path('recipe-save/<int:pk>/', views.RecipeSave, name='recipe_save'),
     path('recipe-made/<int:pk>/', views.RecipeMade, name='recipe_made'),
+    path('recipe_liked/<int:pk>/', views.RecipeLiked, name='recipe_liked')
 ]

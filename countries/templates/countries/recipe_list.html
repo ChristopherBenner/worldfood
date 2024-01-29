@@ -7,6 +7,7 @@
     <li>{{country.capital}}</li>
 </ul>
 <img src="{{country.flag}}">
+<!--The following can be removed after the recipe model has been updated to store the recipes from the api-->
 {% for recipe in recipes %}
 <div class="recipe-card">
     <a href="{% url 'recipes:recipe_detail' recipe.id recipe.slug %}">{{recipe.name}}</a>

@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    {% extends 'core/base.html' %}
+    {% block content %}
     <form action="{% url 'countries:country_list' %}" method="get">
         <input type="text" id="search" name="query" value="{{query}}" placeholder="Find a destination">
         <button id="travel" value="submit">Travel</button>
@@ -17,7 +19,7 @@
         <h1>{{continent}}</h1>
         {% for country in countries %}
             {% if country.continent == continent %}
-                <a href="{% url 'countries:recipe_list' country.id %}">
+                <a href="{% url 'countries:country_redirect' country.id %}">
                     <div class="country">
                         <h3>{{country}}</h3>
                     </div>
@@ -27,5 +29,6 @@
     {% empty %}
         <h3>No countries match your search</h3>
     {% endfor %}
+    {% endblock content %}
 </body>
 </html>
