@@ -6,9 +6,12 @@ from .models import Recipe, MadeRecipe, SavedRecipe
 from badges.functions import add_badge
 from likes.models import Like
 import requests, json
+from comments.forms import CommentForm
+from comments.models import Comment
 
 def recipe_detail(request, pk, slug):
     recipe = Recipe.objects.get(pk=pk)
+    comments = Comment.objects.filter(recipe = recipe)
     saved = False
     made = False
     liked = False
@@ -30,6 +33,21 @@ def recipe_detail(request, pk, slug):
             made = True
         if liked_recipes:
             liked = True
+
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.author = request.user
+                comment.recipe = recipe
+                comment.save()
+
+                return redirect('recipes:recipe_redirect', pk=pk)
+        else:
+            form = CommentForm()
+                
+            
     
     """url = "https://yummly2.p.rapidapi.com/feeds/"
     #querystring = {"q":"/recipe/Stuffed-Onions-From-Afghanistan-9268792"}
@@ -50,6 +68,8 @@ def recipe_detail(request, pk, slug):
         'made': made,
         'liked': liked,
         'liked_count': liked_count,
+        'form': form,
+        'comments': comments,
         # 'attributes': attributes,
     })
 

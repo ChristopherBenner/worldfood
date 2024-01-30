@@ -34,6 +34,14 @@
     {% for recipe in saved_recipes %}
         <h3>{{recipe.name}}</h3>
     {% endfor %}
+    {% for comment in comments %}
+    <p>{{comment.author.username}} | {{comment.text}}</p>
+    {% endfor %}
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
 {% else %}
     <h3 class="login_required">Login To Save Recipe</h3>
 {% endif %}
