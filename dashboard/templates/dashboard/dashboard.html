@@ -3,6 +3,7 @@
 {% block content %}
 <h1>{{ user.username }}'s Dashboard</h1>
 <a href="{% url 'dashboard:saved_recipes' %}" id="saved_recipes">Saved Recipes</a>
-<!--Add a link to see recipes that have been made-->
-<!--Add a potential link to see the recipes that have been liked-->
+<a href="{% url 'dashboard:made_recipes' %}" id="made_recipes">Made Recipes</a>
+<a href="{% url 'dashboard:liked_recipes' %}" id="liked_recipes">Liked Recipes</a>
+<a href="{% url 'badges:badges' %}" id="badges">Badges</a>
 {% endblock content %}

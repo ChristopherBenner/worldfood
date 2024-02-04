@@ -1,0 +1,9 @@
+<!--dashboard/templates/dashboard/made_recipes.html-->
+{% extends 'core/base.html' %}
+{% block content %}
+{% for made_recipe in made_recipes %}
+    <a href="{% url 'recipes:recipe_detail' made_recipe.recipe.id made_recipe.recipe.slug %}" style="display: block;">{{made_recipe.recipe.name}}</a>
+{% empty %}
+    <h3>No made recipes</h3>
+{% endfor %}
+{% endblock content %}

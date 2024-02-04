@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include('core.urls')),
@@ -26,3 +26,5 @@ urlpatterns = [
     path("notifications/", include('notifications.urls')),
     path("badges/", include('badges.urls')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

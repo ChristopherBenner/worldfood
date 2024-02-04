@@ -1,0 +1,9 @@
+<!--dashboard/templates/dashboard/liked_recipes.html-->
+{% extends 'core/base.html' %}
+{% block content %}
+{% for liked_recipe in liked_recipes %}
+    <a href="{% url 'recipes:recipe_detail' liked_recipe.recipe.id liked_recipe.recipe.slug %}" style="display: block;">{{liked_recipe.recipe.name}}</a>
+{% empty %}
+    <h3>No liked recipes</h3>
+{% endfor %}
+{% endblock content %}

@@ -1,29 +1,31 @@
 <!-- core/templates/core/base.html -->
+{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head lang="en">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock title %} | World Food</title>
-    <style>
-        .unread {
-            color:red;
-        }
-        .read {
-            color:blue;
-        }
-    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/stylesheet.css' %}"/>
 </head>
 
 <body>
     <!--Add a nav bar-->
     {% block navbar %}
-        <a href="{% url 'core:home' %}">Home</a> <!--Come up with a logo and make clicking on the logo work-->
-        <a href="{% url 'countries:country_list' %}">Explore</a> <!--Add a map of the world at the beginning-->
+    <div class="topnav" id="myTopnav">
+        <div class="leftnav">
+            <a href="{% url 'core:home' %}" class="active" id="home">Home</a> <!--Come up with a logo and make clicking on the logo work-->
+            <a href="{% url 'countries:country_list' %}">Explore</a> <!--Add a map of the world at the beginning-->
+        </div>
+        <div class="rightnav">
     {% if user.is_authenticated %}
         
         <a href="{% url 'core:logout' %}">Logout</a>
-        <a href="{% url 'notifications:notifications' %}" id="notifications"><span id="num_notifications"></span></a>
+        <a href="{% url 'notifications:notifications' %}" id="notifications"><span class="material-symbols-outlined">
+            notifications
+            </span><span id="num_notifications"></span></a>
         <script>
             let fetchRes;
 
@@ -47,8 +49,23 @@
     {% else %}
         <a href="{% url 'core:login' %}" id="login">Login</a>
     {% endif %}
+        <a href="javascript:void(0)" class="icon" onclick="toggleNavbar()"><span class="material-symbols-outlined">
+            menu
+            </span></a>
+        </div>
+    </div>
     {% endblock navbar %}
     {% block content %}
     {% endblock content %}
+    <script>
+        function toggleNavbar() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 </body>
 </html>

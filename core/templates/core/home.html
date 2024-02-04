@@ -1,5 +1,36 @@
 <!-- core/templates/core/home.html -->
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block content %}
+
+<div class="wrapper">
+    <h1>World Food Passport</h1>
+    <h3>Welcome to World Food Passport, where culinary challenges meet gamified adventure</h3>
+    <p>Embark on a journey around the world through the list of countries. Click on the link for each country to discover their cuisine and unlock great rewards. Each country is a doorway to a world of flavor, and a portal to adventure waiting for you to discover.</p>
+    <h3>Quests and Challenges</h3>
+    <!--Add three pictures of possible badges-->
+    <div class="possible-badges">
+        <div class="badge">
+            <img class="badgeicon" src="{% static '/badges/2.png' %}" alt="First Badge To Win">
+            <div class="onhoverbadge">Complete Your First Recipe</div>
+        </div>
+        <div class="badge">
+            <img class="badgeicon" src="{% static '/badges/4.png' %}" alt="Second Badge To Win">
+            <div class="onhoverbadge">Complete Your Fifth Recipe</div>
+        </div>
+        <div class="badge">
+            <img class="badgeicon" src="{% static '/badges/3.png' %}" alt="Third Badge To Win"> 
+            <div class="onhoverbadge">Complete Your Tenth Recipe</div>
+        </div>
+    </div>
+    <p>You have always dreamed of exploring the world, well now is your chance to show what you are made of. Do you have what it takes to become the ultimate globetrotter?</p>
+    <p>Many have long sought the fame and the glory that come from such an adventure.</p>
+    <p>Many, many, many have tried and many have failed.</p>
+    <p>Few have what it takes to travel the culinary world. <strong>Are you up for the challenge?</strong></p>
+    <a href="{% url 'countries:country_list'  %}"><strong>Enter If You Dare!</strong></a>
+</div>
+<!--Add section for featured country of the week-->
+<!--Add section for Recipe of the day-->
+<!--Add a leaderboard to show users who have recently unlocked cool artifacts-->
 {% endblock content %}

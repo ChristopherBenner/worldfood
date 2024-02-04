@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from .models import AwardedBadge, Badge
+from .models import AwardedBadge, Badge
 
 # Create your views here.
 def view_badges(request):
