@@ -10,25 +10,23 @@
 <body>
     {% extends 'core/base.html' %}
     {% block content %}
-    <form action="{% url 'countries:country_list' %}" method="get">
-        <input type="text" id="search" name="query" value="{{query}}" placeholder="Find a destination">
-        <button id="travel" value="submit">Travel</button>
-    </form>
-
-    {% for continent in continents %}
-        <h1>{{continent}}</h1>
+    <div class="wrapper">
+    <h1>Welcome Traveler</h1> <!--Maybe update this later to reflect the user's name and or game rank-->
+    <h3>Not so easily scared are you.</h3>
+    <p>I see you have decided to take on the challenge of becoming a world class explorer.<br>Remember, you don't have
+        to do this, you can still leave now and no one will think anything bad about you.</p>
+    <p>Still want to go through with this?</p>
+    <p>Oh well, I tried to warn you.</p>
+    <p>The next step in becoming an adventurer is deciding where you want to go</p>
+    <h3>Choose a country, or choose your fate</h3>
+    <select onchange="location = this.value">
+        <option>Choose a Country</option>
         {% for country in countries %}
-            {% if country.continent == continent %}
-                <a href="{% url 'countries:country_redirect' country.id %}">
-                    <div class="country">
-                        <h3>{{country}}</h3>
-                    </div>
-                </a>
-            {% endif %}
+        <option value="{% url 'countries:country_redirect' country.id %}">{{country.name}}</option>
         {% endfor %}
-    {% empty %}
-        <h3>No countries match your search</h3>
-    {% endfor %}
+    </select>
+    </div>
     {% endblock content %}
 </body>
+
 </html>

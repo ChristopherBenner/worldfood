@@ -1,17 +1,44 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+<div class="wrapper">
+    <h1>Welcome to {{country.name}}</h1> <!--Add possible javascript later to put a random greeting/warning-->
+    <h3>Hope you enjoy your visit</h3>
+    <p>You are now one step closer to becoming a great explorer</p>
+    <h3>Here's some information about {{country.name}}</h3>
+    <div class="country-card">
+        <div>
+            <ul>
+                <li>Capital: {{country.capital}}</li>
+                <li>Population: {{country.population}}</li>
+            </ul>
+        </div>
+        <div>
+            <img src="{{country.flag}}">
+        </div>
+    </div>
+    <h3>You've gone this far. I can't stop you now.</h3>
+    <p>Select a recipe below to take the next step on the journey</p>
 
-<h1>{{country.name}}</h1>
-<ul>
-    <li>{{country.capital}}</li>
-</ul>
-<img src="{{country.flag}}">
-<!--The following can be removed after the recipe model has been updated to store the recipes from the api-->
-{% for recipe in recipes %}
-<div class="recipe-card">
-    <a href="{% url 'recipes:recipe_detail' recipe.id recipe.slug %}">{{recipe.name}}</a>
+    <!--The following can be removed after the recipe model has been updated to store the recipes from the api-->
+    <!--Recipe card should include the name, picture, likes (potentially)-->
+    <!--Update later to include type of dish i.e. bread, dessert, main, side, etc.-->
+    <!--Have it originally start at 3 columns wide-->
+    <div class="recipe-card-wrapper">
+        {% for recipe in recipes %}
+            <a
+                href="{% url 'recipes:recipe_detail' recipe.id recipe.slug %}">
+            <div class="recipe-card">
+                {% if recipe.image %}
+                <img src="{{recipe.image.url}}">
+                {% endif %}
+                <div class="recipe-card-info">
+                    <h2>{{recipe.name}}</h2>
+                </div>
+            </div>
+            </a><!--The whole thing should be clickable-->
+        {% endfor %}
+    </div>
+    
 </div>
-{% endfor %}
-
 {% endblock %}

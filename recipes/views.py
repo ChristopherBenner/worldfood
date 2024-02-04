@@ -20,12 +20,12 @@ def recipe_detail(request, pk, slug):
     # Otherwise, prompt the user to log in before giving these options
     # Without the login check, an error shows which doesn't allow the recipe to be shown at all
     
-
+    liked_count = Like.objects.filter(recipe = recipe).count()
     if request.user.is_authenticated: 
         saved_recipes = SavedRecipe.objects.filter(recipe = recipe).filter(user = request.user)
         made_recipes = MadeRecipe.objects.filter(recipe = recipe).filter(user = request.user)        
         liked_recipes = Like.objects.filter(recipe = recipe).filter(user = request.user)
-        liked_count = Like.objects.filter(recipe = recipe).count()
+        
         
         if saved_recipes:
             saved = True

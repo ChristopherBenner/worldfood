@@ -9,9 +9,8 @@ class Recipe(models.Model):
     ingredients = models.TextField(null=True, blank=True)
     instructions = models.TextField(null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
-    # saved_recipes = models.ManyToManyField(User, related_name='saved_recipe')
-    # made_recipes = models.ManyToManyField(User, related_name='made_recipe')
-    # Things to add later: pictures, ratings, comments
+    image = models.ImageField(upload_to='static/recipes', null=True, blank=True)
+    url = models.URLField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
