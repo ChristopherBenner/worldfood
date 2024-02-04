@@ -15,6 +15,9 @@ def recipe_detail(request, pk, slug):
     saved = False
     made = False
     liked = False
+
+    ingredients = [i for i in recipe.ingredients.split('\r\n')] # The ingredients are separated in the model by a carriage return.
+    instructions = [i for i in recipe.instructions.split('\r\n')] # The instructions are separated in the model by a carriage return.
     # Check to see if the user is logged in
     # If so, give the option for saved recipes and made recipes
     # Otherwise, prompt the user to log in before giving these options
@@ -70,7 +73,8 @@ def recipe_detail(request, pk, slug):
         'liked_count': liked_count,
         'form': form,
         'comments': comments,
-        # 'attributes': attributes,
+        'ingredients': ingredients,
+        'instructions': instructions,
     })
 
 def get_redirect_url(request, pk):

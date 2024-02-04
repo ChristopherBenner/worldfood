@@ -1,38 +1,62 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-<h1 id="recipe_title">{{recipe.name}}</h1>
-<a href="{% url 'countries:country_redirect' recipe.country.id %}">View other recipes from {{recipe.country.name}}</a> <!--Get the link working-->
-
-
-{% if user.is_authenticated %}
+<div class="wrapper">
+    <h1 id="recipe-title">{{recipe.name}}</h1>
+    <p id="recipe-country">{{recipe.country.name}}</p>
+    <img class="recipe-image" src="{{recipe.image.url}}" alt="{{recipe.name}}">
+    <p>I told you it would be frightening. How about something else from <a
+            href="{% url 'countries:country_redirect' recipe.country.id %}">{{recipe.country.name}}</a></p>
+    <div class="recipe">
+        <div class="recipe-header">
+            <h4>{{recipe.name}}</h4>
+        </div>
+        <h3>Ingredients</h3>
+        <div class="ingredients">
+            <ul>
+                {% for ingredient in ingredients %}
+                <li>{{ingredient}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <h3>Instructions</h3>
+        <div class="instructions">
+            <ol>
+                {% for instruction in instructions %}
+                <li>{{instruction}}</br></li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
     <form action="{% url 'recipes:recipe_save' recipe.id %}" method="post">
         {% csrf_token %}
         {% if saved %}
-            <button type="submit" name="recipe_save" value="{{recipe.id}}" style="background-color: blue;">Recipe Saved</button>
+        <button type="submit" name="recipe_save" value="{{recipe.id}}" style="background-color: blue;">Recipe
+            Saved</button>
         {% else %}
-            <button type="submit" name="recipe_save" value="{{recipe.id}}">Save Recipe</button>
+        <button type="submit" name="recipe_save" value="{{recipe.id}}">Save Recipe</button>
         {% endif %}
     </form>
     <form action="{% url 'recipes:recipe_made' recipe.id %}" method="post">
         {% csrf_token %}
         {% if made %}
-            <button type="submit" name="recipe_made" style="background-color: blue;">Remove From Made Recipes</button>
+        <button type="submit" name="recipe_made" style="background-color: blue;">Remove From Made Recipes</button>
         {% else %}
-            <button type="submit" name="recipe_made">I Made It!</button>
+        <button type="submit" name="recipe_made">I Made It!</button>
         {% endif %}
     </form>
     <form action="{% url 'recipes:recipe_liked' recipe.id %}" method="post">
         {% csrf_token %}
         {% if liked %}
-            <button type="submit" name="recipe_liked">Liked</button>
+        <button type="submit" name="recipe_liked">Liked</button>
         {% else %}
-            <button type="submit" name="recipe_liked">Like</button>
+        <button type="submit" name="recipe_liked">Like</button>
         {% endif %}
     </form>
     <p>Liked by: {{liked_count}}</p>
     {% for recipe in saved_recipes %}
-        <h3>{{recipe.name}}</h3>
+    <h3>{{recipe.name}}</h3>
     {% endfor %}
     {% for comment in comments %}
     <p>{{comment.author.username}} | {{comment.text}}</p>
@@ -42,8 +66,12 @@
         {{form.as_p}}
         <button type="submit">Submit</button>
     </form>
-{% else %}
-    <h3 class="login_required">Login To Save Recipe</h3>
-{% endif %}
+    {% else %}
+    <h3 class="login-required">Login To Save Recipe</h3>
+    {% endif %}
+</div>
+
+
+
 
 {% endblock content %}
