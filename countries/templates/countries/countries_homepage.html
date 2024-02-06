@@ -12,13 +12,13 @@
     {% block content %}
     <div class="wrapper">
     <h1>Welcome Traveler</h1> <!--Maybe update this later to reflect the user's name and or game rank-->
-    <h3>Not so easily scared are you.</h3>
-    <p>I see you have decided to take on the challenge of becoming a world class explorer.<br>Remember, you don't have
+    <h3 class="scare-text-h3">Not so easily scared are you.</h3>
+    <p class="scare-text-p">I see you have decided to take on the challenge of becoming a world class explorer.<br>Remember, you don't have
         to do this, you can still leave now and no one will think anything bad about you.</p>
-    <p>Still want to go through with this?</p>
-    <p>Oh well, I tried to warn you.</p>
-    <p>The next step in becoming an adventurer is deciding where you want to go</p>
-    <h3>Choose a country, or choose your fate</h3>
+    <p class="scare-text-p">Still want to go through with this?</p>
+    <p class="scare-text-p">Oh well, I tried to warn you.</p>
+    <p class="scare-text-p">The next step in becoming an adventurer is deciding where you want to go</p>
+    <h3 class="scare-text-h3">Choose a country, or choose your fate</h3>
     <select onchange="location = this.value">
         <option>Choose a Country</option>
         {% for country in countries %}

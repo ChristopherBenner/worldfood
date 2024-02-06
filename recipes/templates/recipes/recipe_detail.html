@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="wrapper">
-    <h1 id="recipe-title">{{recipe.name}}</h1>
-    <p id="recipe-country">{{recipe.country.name}}</p>
+    <h1>{{recipe.name}}</h1>
+    <p>{{recipe.country.name}}</p>
     <img class="recipe-image" src="{{recipe.image.url}}" alt="{{recipe.name}}">
     <p>I told you it would be frightening. How about something else from <a
             href="{% url 'countries:country_redirect' recipe.country.id %}">{{recipe.country.name}}</a></p>
@@ -28,50 +28,56 @@
             </ol>
         </div>
     </div>
+    <h3 class="scare-text-h3">So you made it past the recipe</h3>
+    <p class="scare-text-p">For making it past this challenge, click the "I Made It!" button</p>
+    <p class="scare-text-p">The more challenges you face, the more rewards you will earn</p>
     {% if user.is_authenticated %}
-    <form action="{% url 'recipes:recipe_save' recipe.id %}" method="post">
+    <div class="recipe-buttons">
+        <form action="{% url 'recipes:recipe_save' recipe.id %}" method="post">
+            {% csrf_token %}
+            {% if saved %}
+            <button type="submit" name="recipe_save" value="{{recipe.id}}" class="selected-button">Recipe
+                Saved</button>
+            {% else %}
+            <button type="submit" name="recipe_save" value="{{recipe.id}}">Save Recipe</button>
+            {% endif %}
+        </form>
+        <form action="{% url 'recipes:recipe_made' recipe.id %}" method="post">
+            {% csrf_token %}
+            {% if made %}
+            <button type="submit" name="recipe_made" class="selected-button">Remove From Made Recipes</button>
+            {% else %}
+            <button type="submit" name="recipe_made">I Made It!</button>
+            {% endif %}
+        </form>
+        <form action="{% url 'recipes:recipe_liked' recipe.id %}" method="post">
+            {% csrf_token %}
+            {% if liked %}
+            <button type="submit" name="recipe_liked" class="selected-button">Liked</button><span
+                class="liked-count">+{{liked_count}}</span>
+            {% else %}
+            <button type="submit" name="recipe_liked">Like</button><span class="liked-count">+{{liked_count}}</span>
+            {% endif %}
+        </form>
+    </div>
+    <p>This recipe is originally from <a href="{{recipe.url}}">{{recipe.url}}</a></p>
+    <h3 class="scare-text-h3">Warnings and Cautions from Other Explorers</h3>
+    <p class="scare-text-p">Others have come before you, and have left their mark here to help guide others on their
+        path.</p>
+    <p class="scare-text-p">If you don't see any markings from others, then congratulate yourself for being one of the
+        first to make it past the challenge.</p>
+    <form method="post" action="." class="comment-form">
         {% csrf_token %}
-        {% if saved %}
-        <button type="submit" name="recipe_save" value="{{recipe.id}}" style="background-color: blue;">Recipe
-            Saved</button>
-        {% else %}
-        <button type="submit" name="recipe_save" value="{{recipe.id}}">Save Recipe</button>
-        {% endif %}
+        {{form.text}}
+        <button type="submit">Leave a Warning!</button>
     </form>
-    <form action="{% url 'recipes:recipe_made' recipe.id %}" method="post">
-        {% csrf_token %}
-        {% if made %}
-        <button type="submit" name="recipe_made" style="background-color: blue;">Remove From Made Recipes</button>
-        {% else %}
-        <button type="submit" name="recipe_made">I Made It!</button>
-        {% endif %}
-    </form>
-    <form action="{% url 'recipes:recipe_liked' recipe.id %}" method="post">
-        {% csrf_token %}
-        {% if liked %}
-        <button type="submit" name="recipe_liked">Liked</button>
-        {% else %}
-        <button type="submit" name="recipe_liked">Like</button>
-        {% endif %}
-    </form>
-    <p>Liked by: {{liked_count}}</p>
-    {% for recipe in saved_recipes %}
-    <h3>{{recipe.name}}</h3>
-    {% endfor %}
+    <div class="comments">
     {% for comment in comments %}
-    <p>{{comment.author.username}} | {{comment.text}}</p>
+    <p class="comment"><strong>{{comment.author.username}} |</strong> {{comment.text}}</p>
     {% endfor %}
-    <form method="post" action=".">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Submit</button>
-    </form>
+    </div>
     {% else %}
     <h3 class="login-required">Login To Save Recipe</h3>
     {% endif %}
 </div>
-
-
-
-
 {% endblock content %}

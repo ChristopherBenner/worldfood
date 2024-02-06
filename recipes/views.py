@@ -8,14 +8,16 @@ from likes.models import Like
 import requests, json
 from comments.forms import CommentForm
 from comments.models import Comment
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def recipe_detail(request, pk, slug):
     recipe = Recipe.objects.get(pk=pk)
     comments = Comment.objects.filter(recipe = recipe)
     saved = False
     made = False
     liked = False
-
+    liked_count = 0
     ingredients = [i for i in recipe.ingredients.split('\r\n')] # The ingredients are separated in the model by a carriage return.
     instructions = [i for i in recipe.instructions.split('\r\n')] # The instructions are separated in the model by a carriage return.
     # Check to see if the user is logged in
@@ -23,12 +25,12 @@ def recipe_detail(request, pk, slug):
     # Otherwise, prompt the user to log in before giving these options
     # Without the login check, an error shows which doesn't allow the recipe to be shown at all
     
-    liked_count = Like.objects.filter(recipe = recipe).count()
+    
     if request.user.is_authenticated: 
         saved_recipes = SavedRecipe.objects.filter(recipe = recipe).filter(user = request.user)
         made_recipes = MadeRecipe.objects.filter(recipe = recipe).filter(user = request.user)        
         liked_recipes = Like.objects.filter(recipe = recipe).filter(user = request.user)
-        
+        liked_count = Like.objects.filter(recipe = recipe).count()
         
         if saved_recipes:
             saved = True
