@@ -27,7 +27,7 @@ class Badge(models.Model):
         return self.badge_name
 
 class AwardedBadge(models.Model):
-    badge = models.ForeignKey(Badge, on_delete = models.CASCADE)
+    badge = models.ForeignKey(Badge, on_delete = models.CASCADE, related_name = "badges")
     awarded_to = models.ForeignKey(User, on_delete = models.CASCADE)
     date_awarded = models.DateTimeField(auto_now_add = True)
     displayed = models.BooleanField(default=False)

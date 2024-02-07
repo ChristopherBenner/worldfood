@@ -1,9 +1,20 @@
 <!-- dashboard/templates/dashboard/dashboard.html -->
 {% extends 'core/base.html' %}
 {% block content %}
-<h1>{{ user.username }}'s Dashboard</h1>
-<a href="{% url 'dashboard:saved_recipes' %}" id="saved_recipes">Saved Recipes</a>
-<a href="{% url 'dashboard:made_recipes' %}" id="made_recipes">Made Recipes</a>
-<a href="{% url 'dashboard:liked_recipes' %}" id="liked_recipes">Liked Recipes</a>
-<a href="{% url 'badges:badges' %}" id="badges">Badges</a>
+<div class="wrapper">
+    <h1>{{ user.username }}'s Dashboard</h1>
+    <h3 class="scare-text-h3">Come here to see your past adventures</h3>
+    <div class="dashboard-section">
+        <a href="{% url 'dashboard:saved_recipes' %}" id="saved_recipes">Saved Recipes</a>
+    </div>
+    <div class="dashboard-section">
+        <a href="{% url 'dashboard:made_recipes' %}" id="made_recipes">Made Recipes</a>
+    </div>
+    <div class="dashboard-section">
+        <a href="{% url 'dashboard:liked_recipes' %}" id="liked_recipes">Liked Recipes</a>
+    </div>
+    <div class="dashboard-section">
+        <a href="{% url 'badges:badges' %}" id="badges">Badges</a>
+    </div>
+</div>
 {% endblock content %}

@@ -103,6 +103,7 @@ select {
 
 .badge {
     display: block;
+    padding: 5px;
 }
 
 .country-card {
@@ -253,6 +254,15 @@ select {
     top: 12px;
     border: 2px solid black;
 }
+
+.dashboard-section {
+    padding: 30px 30px;
+    text-align: left;
+    text-decoration: none;
+    border-bottom: 1px solid gray;
+    font-size: 30px;
+    width: 80%;
+}
 @media screen and (max-width: 600px) {
     .leftnav a:first-of-type {
         display: block;
@@ -283,6 +293,9 @@ select {
     
     .modal-badge h1 {
         font-size: 30px;
+    }
+    .dashboard-section {
+        text-align: center;
     }
 }
 @media screen and (max-width:600px) {

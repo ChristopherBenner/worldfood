@@ -1,13 +1,22 @@
+<!--dashboard/templates/dashboard/liked_recipes.html-->
 {% extends 'core/base.html' %}
-
 {% block content %}
-<h1 class="heading">Badges</h1>
 
-<!--
-Have a way to show the awarded and not 
-awarded badges. Under each badge the name 
-of the badge should be displayed. On hover should
-show the date it was awarded.
+<div class="wrapper">
+    <h3 class="scare-text-h3">Here are the badges you have earned</h3>
+    <p class="scare-text-p">The more you do, the more badges you will earn.</p>
+    <div class="possible-badges">
+        {% for badge in badges %}
+        <div class="badge">
 
--->
+            {% if badge in awarded_badges %}
+            <img class="badgeicon" src="{{badge.awarded_badge.url}}" alt="{{badge.badge_name}}">
+            {% else %}
+            <img class="badgeicon" src="{{badge.not_awarded_badge.url}}" alt="{{badge.badge_name}}">
+            {% endif %}
+            <div class="onhoverbadge">{{badge.badge_name}}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}

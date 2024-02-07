@@ -1,9 +1,26 @@
+<!--dashboard/templates/dashboard/saved_recipes.html-->
 {% extends 'core/base.html' %}
-
 {% block content %}
-{% for saved_recipe in saved_recipes %}
-    <a href="{% url 'recipes:recipe_detail' saved_recipe.recipe.id saved_recipe.recipe.slug %}" style="display: block;">{{saved_recipe.recipe.name}}</a>
-{% empty %}
-    <h3>No saved recipes</h3>
-{% endfor %}
+<div class="wrapper">
+    <h3 class="scare-text-h3">Your Saved Recipes</h3>
+    <div class="recipe-card-wrapper">
+        {% for saved_recipe in saved_recipes %}
+        <a href="{% url 'recipes:recipe_detail' saved_recipe.recipe.id saved_recipe.recipe.slug %}">
+            <div class="recipe-card">
+                {% if saved_recipe.recipe.image %}
+                <img src="{{saved_recipe.recipe.image.url}}">
+                {% endif %}
+                <div class="recipe-card-info">
+                    <h2>{{saved_recipe.recipe.name}}</h2>
+                </div>
+            </div>
+        </a><!--The whole thing should be clickable-->
+        {% empty %}
+        <h3 class="scare-text-h3">No Saved Recipes</h3>
+        <p class="scare-text-p">They've done a good job of scaring you off</p>
+        <p class="scare-text-p">Why don't you show them what you're made of</p>
+        <p class="scare-text-p">If you want to be an adventurer... go on adventures</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
