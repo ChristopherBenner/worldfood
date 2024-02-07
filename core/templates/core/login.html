@@ -1,13 +1,15 @@
 <!-- core/templates/core/login.html -->
 {% extends 'core/base.html' %}
-{% block title %}Login{% endblock %}
+<!--{% block title %}Login{% endblock %}-->
 
-{% block navbar %}{% endblock navbar %}
 {% block content %}
-<form method="post" action=".">
-    {% csrf_token %}
-    {{ form.as_p}}
-    <button id="login">Login</button>
-</form>
-<a href="{% url 'core:signup' %}" id="create_account">Create Account</a>
+<div class="wrapper">
+    <h1>Login</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button id="login">Login</button>
+    </form>
+    <a href="{% url 'core:signup' %}" id="create_account">Create Account</a>
+</div>
 {% endblock content %}

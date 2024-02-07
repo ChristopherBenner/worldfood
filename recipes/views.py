@@ -4,6 +4,7 @@ from dashboard.models import Dashboard
 from notifications.models import Notification
 from .models import Recipe, MadeRecipe, SavedRecipe
 from badges.functions import add_badge
+from badges.models import AwardedBadge
 from likes.models import Like
 import requests, json
 from comments.forms import CommentForm
@@ -32,6 +33,7 @@ def recipe_detail(request, pk, slug):
         liked_recipes = Like.objects.filter(recipe = recipe).filter(user = request.user)
         liked_count = Like.objects.filter(recipe = recipe).count()
         
+        
         if saved_recipes:
             saved = True
         if made_recipes:
@@ -51,22 +53,7 @@ def recipe_detail(request, pk, slug):
                 return redirect('recipes:recipe_redirect', pk=pk)
         else:
             form = CommentForm()
-                
-            
-    
-    """url = "https://yummly2.p.rapidapi.com/feeds/"
-    #querystring = {"q":"/recipe/Stuffed-Onions-From-Afghanistan-9268792"}
-
-    # The API Key should be moved into a separate file, and not included in the main files
-    headers = {"X-RapidAPI-Key": "395ac24211msh69d8d498a22b082p1bf25djsn81214c5dc50b",
-	"X-RapidAPI-Host": "yummly2.p.rapidapi.com"
-    }
-    # Uncomment the lines below to access the api -> Not used during testing
-    # The api has a monthly limit, so work should be done to avoid using it when possible.
-    
-    # response = requests.get(url, headers=headers, params=querystring)
-    response = requests.get(url, headers=headers)
-    attributes = response.json()"""
+        
     return render(request, 'recipes/recipe_detail.html', {
         'recipe': recipe,
         'saved': saved,

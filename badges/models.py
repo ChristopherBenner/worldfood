@@ -30,6 +30,7 @@ class AwardedBadge(models.Model):
     badge = models.ForeignKey(Badge, on_delete = models.CASCADE)
     awarded_to = models.ForeignKey(User, on_delete = models.CASCADE)
     date_awarded = models.DateTimeField(auto_now_add = True)
+    displayed = models.BooleanField(default=False)
 
     class Meta:
         unique_together = (('badge', 'awarded_to'),)
