@@ -1,7 +1,17 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: grey;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)),url("../images/compass-background.jpg");
+}
+
+form {
+    text-align: left;
+    justify-content: end;
+}
+
+input {
+    justify-self: right;
 }
 
 .topnav {
@@ -45,12 +55,12 @@ select {
 
 .wrapper {
     width: 100%;
+    height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
-    background: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)),url("../images/compass-background.jpg");
+    padding-bottom: 20px
     
 }
 
@@ -197,10 +207,7 @@ select {
     padding-left: 2px;
 }
 
-/*.comment {
-    text-align: left;
-    align-self: left;
-}*/
+
 .comments {
     text-align: left;
 }
@@ -220,6 +227,31 @@ select {
     height: 50px;
     margin-bottom: 5px;
     font-size: 16px;
+}
+
+.modal-badge {
+    background-color: lightslategray;
+    width: 500px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 5px;
+    background: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),url("../images/everest-4828404_1280.png");
+    background-size: 600px 400px;
+    background-repeat: no-repeat;
+    text-align: center;
+    overflow: hidden;
+}
+.modal-badge h1 {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    border: 2px solid black;
 }
 @media screen and (max-width: 600px) {
     .leftnav a:first-of-type {
@@ -247,6 +279,10 @@ select {
     }
     .recipe h3 {
         text-align: center;
+    }
+    
+    .modal-badge h1 {
+        font-size: 30px;
     }
 }
 @media screen and (max-width:600px) {

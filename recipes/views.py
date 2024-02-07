@@ -32,7 +32,7 @@ def recipe_detail(request, pk, slug):
         made_recipes = MadeRecipe.objects.filter(recipe = recipe).filter(user = request.user)        
         liked_recipes = Like.objects.filter(recipe = recipe).filter(user = request.user)
         liked_count = Like.objects.filter(recipe = recipe).count()
-        badges_to_display = AwardedBadge.objects.filter(awarded_to = request.user).filter(displayed = False)
+        
         
         if saved_recipes:
             saved = True
@@ -64,7 +64,6 @@ def recipe_detail(request, pk, slug):
         'comments': comments,
         'ingredients': ingredients,
         'instructions': instructions,
-        'badges_to_display': badges_to_display,
     })
 
 def get_redirect_url(request, pk):

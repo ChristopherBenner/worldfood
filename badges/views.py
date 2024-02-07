@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import AwardedBadge, Badge
-
+from django.http import HttpResponseRedirect
 # Create your views here.
 def view_badges(request):
     pass
@@ -13,13 +13,14 @@ def view_badges(request):
         'awarded_badges': awarded_badges,
     })
 
-def badge_displayed(request, recipe_id, badge_id):
+def badge_displayed(request, badge_id):
     badge = AwardedBadge.objects.filter(pk = badge_id).exists()
     if badge:
         badge = AwardedBadge.objects.filter(pk = badge_id).first()
         badge.displayed = True
         badge.save()
-    return redirect(reverse('recipes:recipe_redirect', args=[str(recipe_id)]))
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 '''
 def RecipeSave(request, pk):
     recipe = get_object_or_404(Recipe, id=pk)

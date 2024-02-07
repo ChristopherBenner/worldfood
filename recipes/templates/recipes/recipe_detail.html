@@ -76,31 +76,9 @@
         <p class="comment"><strong>{{comment.author.username}} |</strong> {{comment.text}}</p>
         {% endfor %}
     </div>
-    <!--Add the possibility of doing a modal showing the badges that have been awarded-->
-    {% for badge in badges_to_display %}
-    <dialog class="modal-badge">
-        <form method="post" action="{% url 'badges:badge_displayed' recipe.id badge.id %}"> <!--Need to be able to update the awarded badges, and also get back to the recipe that triggered it-->
-            {% csrf_token %}
-        <button class="close"><span class="material-symbols-outlined">
-                close
-            </span></button>
-        </form>
-        <h3>{{badge.badge.badge_name}}</h3><!--Add styling to make the badges look good-->
-        <!--The display, closing and updating of the model work -->
-    </dialog>
-    {% endfor %}
     {% else %}
     <h3 class="login-required">Login To Save Recipe</h3>
     {% endif %}
 </div>
-<script>
-    const closeModal = document.querySelector('.close');
-    const modal = document.querySelector('.modal-badge');
 
-    modal.showModal(); // on load open the first modal. With django updating the model every time, only the first needs to be found
-    closeModal.addEventListener('click', () => {
-        modal.close();
-    })
-
-</script>
 {% endblock content %}
